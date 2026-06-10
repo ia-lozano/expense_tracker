@@ -6,9 +6,12 @@ __pycache__/
 # C extensions
 *.so
 
+<<<<<<< HEAD
 #MacOs
 .DS_Store
 
+=======
+>>>>>>> 8e4855b38febde67fccdb380f8a1a831639d8f68
 # Distribution / packaging
 .Python
 build/
@@ -65,7 +68,10 @@ db.sqlite3
 db.sqlite3-journal
 
 # Flask stuff:
+<<<<<<< HEAD
 migrations/
+=======
+>>>>>>> 8e4855b38febde67fccdb380f8a1a831639d8f68
 instance/
 .webassets-cache
 
@@ -152,7 +158,10 @@ activemq-data/
 *.sage.py
 
 # Environments
+<<<<<<< HEAD
 .tracker
+=======
+>>>>>>> 8e4855b38febde67fccdb380f8a1a831639d8f68
 .env
 .envrc
 .venv
@@ -220,4 +229,8 @@ marimo/_lsp/
 __marimo__/
 
 # Streamlit
+<<<<<<< HEAD
 .streamlit/secrets.toml
+=======
+.streamlit/secrets.toml
+>>>>>>> 8e4855b38febde67fccdb380f8a1a831639d8f68

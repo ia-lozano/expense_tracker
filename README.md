@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Expense Tracker made with Flask
 Personal finance tracker made with Flask, Bootstrap and Chart.js
 help users track and visualize daily expenses by category and date.
@@ -41,3 +42,7 @@ python -m venv .venv
 pip install -r requirements.txt
 Run:
 python run.py
+=======
+# expense_tracker
+This is an expense tracker app mnade with Flask and Chart.js
+>>>>>>> 8e4855b38febde67fccdb380f8a1a831639d8f68

@@ -1,0 +1,119 @@
+{% extends 'tracker/base.html' %}
+
+{% block content %}
+
+<div class="container mt-4 py-5">
+
+<h1 class="text-center mb-4">Expense Tracker Dashboard</h1>
+
+<!-- Top Metrics -->
+<div class="row g-3 mb-4">
+
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+                <h6 class="text-muted">Total Expenses</h6>
+                <h3>{{ "{:,.2f}".format(total_expense | float) }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+                <h6 class="text-muted">Average Expense</h6>
+                <h3>{{ "{:,.2f}".format(avg_spent | float) }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+                <h6 class="text-muted">Largest Expense</h6>
+                <h5>{{ max_expense.expense_type }}</h5>
+                <h3>{{ "{:,.2f}".format(max_expense.amount | float) }}</h3>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Analytics Section -->
+<div class="row g-3">
+
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-header">
+                Average by Category
+            </div>
+
+            <ul class="list-group list-group-flush">
+                {% for category, avg in avg_per_type %}
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>{{ category }}</span>
+                    <strong>{{ avg | round(2) }}</strong>
+                </li>
+                {% endfor %}
+            </ul>
+
+        </div>
+    </div>
+
+    <!-- Chart Js -->
+    <div class="col-md-8">
+        <div class="card shadow-sm h-100">
+            <div class="card-header">
+                Spending Analysis
+            </div>
+
+            <div class="card-body text-center">
+                <canvas id="myChart"></canvas>
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+            <script>
+                const cxt = document.getElementById('myChart');
+
+                //Passing data to Chart.js
+                const expenseTypes = {{ expense_types | tojson }};
+                const avgAmounts = {{ avg_amounts | tojson }};
+
+                new Chart(cxt, {
+                    type: 'bar',
+                    data: {
+                        labels: expenseTypes,
+                        datasets:[{
+                            label: 'Average Spent',
+                            data: avgAmounts ,
+                            borderWidth: 1
+                    }]
+                    },
+                    options: {
+                        layout: {
+                            padding: {
+                                top: 5,
+                                bottom: 5,
+                                left: 5,
+                                right: 5
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grace: '10%'
+                            }
+                        }
+                    }
+                });
+            </script>
+
+        </div>
+    </div>
+
+</div>
+</div>
+
+
+{% endblock %}

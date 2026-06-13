@@ -24,24 +24,24 @@ help users track and visualize daily expenses by category and date.
 
 # Installation
 
-Clone repository:
-git clone <repo-url>
+Clone repository: <br>
+git clone <repo-url> <br>
 cd expenseTracker
 
 ## Create environment
 ### MacOs / Linux
-python3 -m venv .venv 
+python3 -m venv .venv <br>
 source .venv/bin/activate
 
 ### Windows
-python -m venv .venv
+python -m venv .venv <br>
 .venv\Scripts\activate
 
 # Install requirements:
-pip install -r requirements.txt
-Run:
+pip install -r requirements.txt<br>
+Run:<br>
 python run.py
-=======
+
 # expense_tracker
-This is an expense tracker app mnade with Flask and Chart.js
+This is an expense tracker app made with Flask and Chart.js
 
